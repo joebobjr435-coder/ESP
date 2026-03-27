@@ -5,22 +5,13 @@ local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/Siri
 local Window = Rayfield:CreateWindow({
     Name = "Universal ESP + Cheats",
     LoadingTitle = "Loading...",
-    LoadingSubtitle = "Key Protected",
+    LoadingSubtitle = "Xeno Stable",
     ConfigurationSaving = {
         Enabled = true,
         FolderName = "CleanESPConfig",
         FileName = "Settings"
     },
-    KeySystem = true,
-    KeySettings = {
-        Title = "Universal Nigga ESP",
-        Subtitle = "Enter Key",
-        Note = "(DM drdouky for updates)",
-        FileName = "Universal ESP",
-        SaveKey = true,
-        GrabKeyFromSite = false,
-        Key = {"doukynigga123"},
-    }
+    KeySystem = false,   -- Change to true when ready
 })
 
 -- Services
@@ -261,7 +252,7 @@ local function StopAimbot()
     fovCircle.Visible = false
 end
 
--- ==================== SPEED HACK (Fixed) ====================
+-- ==================== SPEED HACK (FIXED) ====================
 local originalWalkSpeed = 16
 local speedConnection = nil
 
@@ -272,6 +263,7 @@ local function UpdateSpeed()
 
     if SpeedSettings.Enabled then
         hum.WalkSpeed = SpeedSettings.Value
+
         if not speedConnection then
             speedConnection = RunService.Heartbeat:Connect(function()
                 if SpeedSettings.Enabled and hum and hum.Parent then
@@ -447,7 +439,7 @@ ESPTab:CreateColorPicker({Name = "Box Color", Color = Color3.fromRGB(220,50,50),
 ESPTab:CreateColorPicker({Name = "Tracer Color", Color = Color3.fromRGB(50,220,50), Callback = function(c) ESPSettings.TracerColor = c end})
 ESPTab:CreateColorPicker({Name = "Text Color", Color = Color3.fromRGB(255,255,255), Callback = function(c) ESPSettings.TextColor = c end})
 ESPTab:CreateSlider({Name = "Line Thickness", Range = {1, 5}, Increment = 0.5, CurrentValue = 1.5, Callback = function(v) ESPSettings.Thickness = v end})
-ESPTab:CreateSlider({Name = "Max Distance", Range = {100, 2000}, Increment = 50, CurrentValue = 800, Callback = function(v) ESPSettings.MaxDistance = v end})
+ESPTab:CreateSlider({Name = "Max Distance", Range = {100, 10000}, Increment = 50, CurrentValue = 800, Callback = function(v) ESPSettings.MaxDistance = v end})
 
 local CheatsTab = Window:CreateTab("Cheats", 4483362458)
 
@@ -495,9 +487,9 @@ CheatsTab:CreateToggle({Name = "Show Hitbox Visuals", CurrentValue = true, Callb
 end})
 
 Rayfield:Notify({
-    Title = "✅ Script Loaded Successfully",
-    Content = "Key System Active • Speed Hack Fixed",
+    Title = "✅ Full Script Loaded",
+    Content = "Speed Hack should now work properly",
     Duration = 8,
 })
 
-print("✅ Universal ESP + Cheats with Key System Loaded")
+print("✅ Universal ESP + Cheats - Speed Fixed")
